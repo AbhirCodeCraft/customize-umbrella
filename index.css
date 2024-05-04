@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;500&display=swap");
+
+@keyframes fadeInAnimation {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+
+body {
+  font-family: "Arimo", sans-serif;
+  background-color: #c5e0dc;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90vh;
+}
+
+.image-container {
+  width: 65%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.umbrella-image {
+  width: 40%;
+  display: block;
+  position: relative;
+  opacity: 0; 
+  animation: fadeInAnimation 1s ease forwards;
+}
+
+.themes-container {
+  width: 35%;
+}
+#themes-btn {
+  display: flex;
+  gap: 20px;
+}
+#themes-btn button {
+  border-radius: 50%;
+  padding: 0.7rem;
+  border: none;
+  cursor: pointer;
+}
+#themes-btn > button:nth-child(1) {
+  background-color: #2db3e5;
+}
+#themes-btn > button:nth-child(2) {
+  background-color: #fed144;
+}
+#themes-btn > button:nth-child(3) {
+  background-color: #da358c;
+}
+
+.upload-button {
+  display: flex;
+  justify-content: left;
+  font-size: 20px;
+}
+
+.loader-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 999;
+  width: 150px;
+  height: 150px;
+  animation-name: spin;
+  animation-duration: 2000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+#loader {
+  width: 100%; 
+  height: 100%;
+}
+
+#upload-loader {
+  display: none;
+  animation-name: spin;
+  animation-duration: 2000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  transition: all 0.3s ease-in-out;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+#logo-upload-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  text-align: center;
+  background-color: #2db3e5;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  width: 270px;
+  height: 50px;
+}
+
+#logo-upload-button svg {
+  height: 20px;
+  width: 20px;
+  fill: black;
+  background-color: #2db3e5;
+  transition: all 0.3s ease-in-out;
+}
+
+.logo-container {
+  position: absolute;
+  bottom: 10%;
+  z-index: 1;
+  height: auto;
+  width: 10%;
+  opacity: 0; 
+  animation: fadeInAnimation 2s ease forwards;
+}
+
+#umbrella-uploaded-logo {
+  width: 100%;
+  display: none;
+  max-width: 200px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+  }
+
+  .themes-container {
+    width: auto;
+  }
+
+  .image-container {
+    width: auto;
+    padding-top: 40px;
+  }
+  .umbrella-image {
+    width: 80%;
+  }
+  .logo-container {
+    width: 100px;
+  }
+
+  .loader-container {
+    top: 250%;
+  }
+
+  #logo-upload-button {
+    width: 100%;
+  }
+ }
