@@ -1,3 +1,4 @@
+// Declaring required variables
 let blue_btn = document.getElementById("blue-btn");
 let yellow_btn = document.getElementById("yellow-btn");
 let pink_btn = document.getElementById("pink-btn");
@@ -15,6 +16,7 @@ let currentColor = "#2db3e5";
 let currentImage = "./assets/Blue.png";
 upload_logo.style.fill = "white";
 
+// Handle the loading phase by showing the loader image and hiding the umbrella
 function showLoader(color) {
   umbrella_image.style.display = "none";
   umbrella_uploaded_logo.style.display = "none";
@@ -26,6 +28,7 @@ function showLoader(color) {
   loader_container.style.opacity = 1;
 }
 
+// Handle the preview phase by hiding the loader image and showing the umbrella
 function hideLoader() {
   umbrella_image.style.display = "none";
   upload_logo.style.display = "block";
@@ -35,7 +38,7 @@ function hideLoader() {
   umbrella_uploaded_logo.style.display = "block";
 }
 
-// Loading handler function
+// Read the file from input
 function handleLogoUpload(event) {
   const file = event.target.files[0];
   if (file) {
@@ -57,12 +60,13 @@ function handleLogoUpload(event) {
         cross_button.style.display = 'inline';
       }, 3000);
     };
-    event.target.value = '';
+    event.target.value = ''; // Reset the field so that user can select same file again
   }
 
 }
 logo_upload_input.addEventListener("input", handleLogoUpload);
 
+// Handle the behavior of theme for each color
 function updateScreen( selectedColor, backgroundColor, imagePath ) {
   umbrella_image.style.display = "none";
   currentColor = selectedColor;
@@ -96,6 +100,8 @@ pink_btn.addEventListener("click", () => { updateScreen("#da358c", "#f4c4c4", ".
 logo_upload_button.addEventListener("click", () => {
   logo_upload_input.click();
 });
+
+// Remove all traces of file when the cross button is clicked
 cross_button.addEventListener("click", (e) => {
   console.log("Clicked")
   e.stopPropagation();
